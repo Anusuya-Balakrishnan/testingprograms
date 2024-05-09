@@ -24,15 +24,15 @@ public class LoginSteps {
 	    driver.manage().window().maximize();
 	    driver.get("https://www.saucedemo.com/v1/");
 	}
-	@Given("user select username element and enter username value")
-	public void userSelectUsernameElementAndEnterUsernameValue() {
+	@Given("user select username element and enter username {string}")
+	public void userSelectUsernameElementAndEnterUsername(String username) {
 		WebElement usernameElement = driver.findElement(By.xpath("//input[@id='user-name']"));
-		usernameElement.sendKeys("standard_user");
+		usernameElement.sendKeys(username);
 	}
-	@Given("user select password element and enter password value")
-	public void userSelectPasswordElementAndEnterPasswordValue() {
+	@Given("user select password element and enter password {string}")
+	public void userSelectPasswordElementAndEnterPassword(String password) {
 		WebElement passwordElement = driver.findElement(By.xpath("//input[@id='password']"));
-		passwordElement.sendKeys("secret_sauce");
+		passwordElement.sendKeys(password);
 	}
 	@When("User click the login button")
 	public void userClickTheLoginButton() {
@@ -47,4 +47,21 @@ public class LoginSteps {
 		Assert.assertEquals(actualUrl, expectedUrl);
 		
 	}
+	
+//	@Given("the user is on the login page")
+//	public void theUserIsOnTheLoginPage() {
+//	    System.out.println("the user is on the login page");
+//	}
+//	@When("the user enters {string} and {string}")
+//	public void theUserEntersAnd(String string1, String string2) {
+//	    System.out.println("the user enters username"+string1+"and password"+string2);
+//	}
+//	@When("clicks on the login button")
+//	public void clicksOnTheLoginButton() {
+//	    System.out.println("clicks on the login button");
+//	}
+//	@Then("the user should be redirected to the dashboard")
+//	public void theUserShouldBeRedirectedToTheDashboard() {
+//	   System.out.println("the user should be redirected to the dashboard");
+//	}
 }

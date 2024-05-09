@@ -6,9 +6,10 @@ import io.cucumber.testng.CucumberOptions.SnippetType;
 
 
 @CucumberOptions(
-		features = {"src/test/java/Features/demo.feature"},
+		features = {"src/test/java/Features"},
 		dryRun = false,
 		glue = "steps",
+		tags = "@Smoke and @sanity",
 		snippets =  SnippetType.CAMELCASE
 		
 		)

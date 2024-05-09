@@ -21,18 +21,26 @@
 #Feature: Visit career guide page in career.guru99.com
 
 
+
 #Scenario: Visit career.guru99.com
 #Given I am on career.guru99.com
 #When I click on career guide menu
 #Then I should see career guide page
-  
+
+@Smoke
 Feature: login functionality
- Scenario: check login page of sauce demo website using valid username and valid password
+ Scenario Outline: check login page of sauce demo website using valid username and valid password
  Given user navigate to the sauce demo website
- And user select username element and enter username value
- And user select password element and enter password value
+ And user select username element and enter username "<username>"
+ And user select password element and enter password "<password>"
  When User click the login button
  Then user should move to home page
-  
-  
-  
+ 
+ Examples:
+ | username 							| password |
+ | standard_user    			| secret_sauce  |
+ | locked_out_user  			| secret_sauce  |
+ | problem_user    				| secret_sauce |
+ | performance_glitch_user    | secret_sauce |
+ 
+
