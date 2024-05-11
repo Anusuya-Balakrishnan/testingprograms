@@ -8,20 +8,18 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import hooks.DriverInstance;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class LoginSteps {
+public class LoginSteps extends DriverInstance{
 	
-	public  RemoteWebDriver driver;
-	public  WebDriverWait wait;
+	
 	@Given("user navigate to the sauce demo website")
 	public void userNavigateToTheSauceDemoWebsite() {
-	    WebDriverManager.chromedriver().setup();
-	    driver=new ChromeDriver();
-	    driver.manage().window().maximize();
+		
 	    driver.get("https://www.saucedemo.com/v1/");
 	}
 	@Given("user select username element and enter username {string}")

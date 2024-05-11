@@ -6,11 +6,13 @@ import io.cucumber.testng.CucumberOptions.SnippetType;
 
 
 @CucumberOptions(
-		features = {"src/test/java/Features"},
+		features = {"src/test/java/Features/demo.feature"},
 		dryRun = false,
-		glue = "steps",
-		tags = "@Smoke and @sanity",
-		snippets =  SnippetType.CAMELCASE
+		glue = {"steps","hooks"},
+		
+		snippets =  SnippetType.CAMELCASE,
+		plugin = {"pretty","html:report.html","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
+				
 		
 		)
 public class RunnerClass extends AbstractTestNGCucumberTests {
